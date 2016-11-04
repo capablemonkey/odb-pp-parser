@@ -2,31 +2,36 @@
 
 Parses odb++ files to give a human readable JSON representation of a board layer.  Currently only parses features file.
 
-```
+```json
 {
   "pads": [
     {
-      "id": "some-component-name-1",
-      "net": "ABC123",
-      "type": "circle",
-      "center": {
-        "x": 3.000,
-        "y": 1.233
+      "id": "209",
+      "symbol": {
+        "type": "round",
+        "diameter": "55"
       },
-      "radius": 4.32
+      "x": "1.59",
+      "y": "0.1"
     },
     {
-      "id": "some-component-name-2",
-      "net": "ABC123",
-      "type": "rectangle",
-      "top-left": {
-        "x": 3.000,
-        "y": 1.233
+      "id": "312",
+      "symbol": {
+        "type": "oval",
+        "width": "24",
+        "height": "74"
       },
-      "bottom-right": {
-        "x": 6,
-        "y": 8
-      }
+      "x": "1.64",
+      "y": "0.66"
+    },
+    {
+      "id": "346",
+      "symbol": {
+        "type": "square",
+        "side": "70"
+      },
+      "x": "0.25425295",
+      "y": "0.69755837"
     }
   ]
 }
