@@ -34,9 +34,14 @@ Parses odb++ files to give a human readable JSON representation of a board layer
 
 ## Getting started
 
-You'll need Ruby 2.0+
-
+You'll need Ruby 2.0+.  Install dependencies:
 
 ```
-ruby pads.rb
+bundle install
+```
+
+Then parse the `sample_features` file.  Output will be sent to `stdout`
+
+```
+ruby main.rb sample_features
 ```
