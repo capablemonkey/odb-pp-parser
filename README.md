@@ -43,5 +43,5 @@ bundle install
 Then parse the `sample_features` file.  Output will be sent to `stdout`
 
 ```
-ruby main.rb sample_features
+ruby main.rb sample/features
 ```
