@@ -1,0 +1,62 @@
+H optimize N staggered N
+UNITS=INCH
+$0 $NONE$
+$1 +5V
+$2 OUT_DATA_POS
+$3 OUT_DATA_NEG
+$4 GND
+$5 $$$16436
+#
+#Netlist points
+#
+0 0.012 1.64 0.66 T e e staggered 0 0 0 
+0 0.012 1.64 0.46 T e e staggered 0 0 0 
+0 0.012 1.86 0.41 T e e staggered 0 0 0 
+0 0.012 1.86 0.46 T e e staggered 0 0 0 
+0 0.012 1.86 0.51 T e e staggered 0 0 0 
+0 0.012 1.86 0.56 T e e staggered 0 0 0 
+0 0.012 1.86 0.61 T e e staggered 0 0 0 
+0 0.012 1.86 0.66 T e e staggered 0 0 0 
+0 0.0185 0.1542531 0.6475584 B e e staggered 0 0 0 
+0 0.0185 0.1542531 0.5475584 B e e staggered 0 0 0 
+0 0.0185 0.1542531 0.4475584 B e e staggered 0 0 0 
+0 0.0185 0.1542531 0.3475584 B e e staggered 0 0 0 
+0 0.06 0.2542531 0.8975584 B e e staggered 0 0 0 
+0 0.06 0.2542531 0.0975584 B e e staggered 0 0 0 
+0 0.012 1.2197234 0.6559187 T e e staggered 0 0 0 
+0 0.012 1.2197234 0.6059187 T e e staggered 0 0 0 
+0 0.012 1.2197234 0.5559187 T e e staggered 0 0 0 
+0 0.012 1.2197234 0.3559187 T e e staggered 0 0 0 
+0 0.012 1.4397234 0.3559187 T e e staggered 0 0 0 
+0 0.012 1.4397234 0.4059187 T e e staggered 0 0 0 
+0 0.012 1.4397234 0.6059187 T e e staggered 0 0 0 
+0 0.012 1.4397234 0.6559187 T e e staggered 0 0 0 
+1 0.0185 1.94 0.36 B m e staggered 0 0 0 v 
+1 0.0185 1.52 0.56 B m e staggered 0 0 0 v 
+1 0.0185 1.41 0.1 B m e staggered 0 0 0 v 
+1 0.012 1.86 0.36 T e e staggered 0 0 0 
+1 0.0185 0.2552531 0.3975584 B e e staggered 0 0 0 
+1 0.012 1.4397234 0.5559187 T e e staggered 0 0 0 
+1 0 1.4674807 0.1026173 T 0.038 0.03 e e staggered 0 0 0 
+2 0.0185 1.09 0.5195 B m e staggered 0 0 0 v 
+2 0.0185 1.36 0.46 B m e staggered 0 0 0 v 
+2 0.012 1.64 0.41 T e e staggered 0 0 0 
+2 0.0185 0.2552531 0.4975584 B e e staggered 0 0 0 
+2 0.012 1.2197234 0.4559187 T e e staggered 0 0 0 
+2 0.012 1.4397234 0.4559187 T e e staggered 0 0 0 
+3 0.0185 1.34 0.58 B m e staggered 0 0 0 v 
+3 0.0185 1.09 0.5805 B m e staggered 0 0 0 v 
+3 0.012 1.64 0.36 T e e staggered 0 0 0 
+3 0.0185 0.2552531 0.5975584 B e e staggered 0 0 0 
+3 0.012 1.2197234 0.5059187 T e e staggered 0 0 0 
+3 0.012 1.4397234 0.5059187 T e e staggered 0 0 0 
+4 0.0185 1.72 0.56 B m e staggered 0 0 0 v 
+4 0.0185 1.14 0.41 B m e staggered 0 0 0 v 
+4 0.0185 1.59 0.1 B m e staggered 0 0 0 v 
+4 0.012 1.64 0.56 T e e staggered 0 0 0 
+4 0.012 1.64 0.51 T e e staggered 0 0 0 
+4 0.0185 0.2552531 0.2975584 B e e staggered 0 0 0 
+4 0.012 1.2197234 0.4059187 T e e staggered 0 0 0 
+4 0 1.5294807 0.1026173 T 0.038 0.03 e e staggered 0 0 0 
+5 0.012 1.64 0.61 T e e staggered 0 0 0 
+5 0.0185 0.2542531 0.6975584 B e e staggered 0 0 0 

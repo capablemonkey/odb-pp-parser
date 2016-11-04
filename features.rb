@@ -1,8 +1,8 @@
 require 'require_all'
 require_all './lib'
 
-def main
-  filename = ARGV.first || "sample_features"
+def parse_features
+  filename = ARGV.first || "sample/features"
   file_lines = File.read(filename).lines
 
   pads = Pad::parse_pads(file_lines)
@@ -15,4 +15,4 @@ def main
   puts JSON.pretty_generate(output)
 end
 
-main
+parse_features
