@@ -2,10 +2,10 @@ require_relative 'parseable.rb'
 
 class OdbSymbol < Parseable
   STANDARD_SYMBOLS = {
-    /r(?<diameter>\d*)/ => :round,
-    /s(?<side>\d*)/ => :square,
-    /rect(?<width>\d*)x(?<height>\d*)/ => :rect,
-    /oval(?<width>\d*)x(?<height>\d*)/ => :oval
+    /r(?<diameter>\d*(.?\d*))/ => :round,
+    /s(?<side>\d*.?\d*)/ => :square,
+    /rect(?<width>\d*.?\d*)x(?<height>\d*.?\d*)/ => :rect,
+    /oval(?<width>\d*.?\d*)x(?<height>\d*.?\d*)/ => :oval
   }
 
   def initialize(type, params)
@@ -14,13 +14,13 @@ class OdbSymbol < Parseable
   end
 
   def self.from_symbol_name(symbol_name)
-    puts symbol_name
-
     matching_regex = STANDARD_SYMBOLS.
       keys.
       map { |regex, _| regex if regex =~ symbol_name }.
       reject(&:nil?).
       first
+
+    raise "Symbol not supported: #{symbol_name}" unless matching_regex
 
     type = STANDARD_SYMBOLS[matching_regex]
     params = match_data_to_hash(matching_regex.match(symbol_name))

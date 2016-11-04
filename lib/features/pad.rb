@@ -1,5 +1,3 @@
-# Given a features file for a layer, parse all pads.
-
 require 'json'
 require_relative '../parseable.rb'
 
