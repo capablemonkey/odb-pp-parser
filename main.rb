@@ -6,13 +6,13 @@ def main
   file_lines = File.read(filename).lines
 
   pads = Pad::parse_pads(file_lines)
-  feature_symbol_names = FeatureSymbolName::parse(file_lines)
+  symbols = FeatureSymbolName::parse_symbols(file_lines)
 
   output = {
-    :pads => pads.map { |pad| pad.describe(feature_symbol_names) }
+    :pads => pads.map { |pad| pad.describe(symbols) }
   }
 
-  puts JSON.dump(output)
+  puts JSON.pretty_generate(output)
 end
 
 main

@@ -9,7 +9,7 @@ class Parseable
       match_data_to_hash(match_data) if match_data
     end
 
-    matches.delete_if &:nil?
+    matches.reject &:nil?
   end
 
   private
