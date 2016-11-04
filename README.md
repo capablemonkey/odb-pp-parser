@@ -1,6 +1,8 @@
 # odb++ parser
 
-Parses odb++ files to give a human readable JSON representation of a board layer.  Currently only parses features file.
+Parses odb++ files to give a human readable JSON representation of a board layer.  Currently only parses **features** file.
+
+Built against the ODB++ Format Specification Version 8.1 (Sept. 2015), available here: http://www.odb-sa.com/resources/
 
 ```json
 {
@@ -50,3 +52,18 @@ Then parse the `sample_features` file.  Output will be sent to `stdout`
 ```
 ruby main.rb sample/features
 ```
+
+### Abilities
+
+Currently it can identify these entities:
+
+#### Standard symbols
+
+- round
+- square
+- rectangle
+- oval
+
+#### Features
+
+- pads
