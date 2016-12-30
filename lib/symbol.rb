@@ -2,10 +2,10 @@ require_relative 'parseable.rb'
 
 class OdbSymbol < Parseable
   STANDARD_SYMBOLS = {
-    /r(?<diameter>\d*(.?\d*))/ => :round,
-    /s(?<side>\d*.?\d*)/ => :square,
-    /rect(?<width>\d*.?\d*)x(?<height>\d*.?\d*)/ => :rect,
-    /oval(?<width>\d*.?\d*)x(?<height>\d*.?\d*)/ => :oval
+    /^r(?<diameter>\d+(\.?\d*))$/ => :round,
+    /^s(?<side>\d+\.?\d*)$/ => :square,
+    /^rect(?<width>\d+\.?\d*)x(?<height>\d+\.?\d*)$/ => :rect,
+    /^oval(?<width>\d+\.?\d*)x(?<height>\d+\.?\d*)$/ => :oval
   }
 
   def initialize(type, params)
