@@ -1,5 +1,6 @@
 require 'require_all'
 require_all './lib'
+require 'json'
 
 def parse_netlist
   filename = ARGV.first || "sample/netlist"

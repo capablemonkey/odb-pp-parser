@@ -1,0 +1,2 @@
+class Feature < Parseable
+end
