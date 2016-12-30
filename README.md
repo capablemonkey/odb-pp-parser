@@ -94,13 +94,13 @@ bundle install
 Then parse the `sample/features` file.  Output will be sent to `stdout`
 
 ```
-ruby features.rb sample/features
+ruby main.rb features sample/features
 ```
 
 To parse the `sample/netlist` file:
 
 ```
-ruby netlist.rb sample/netlist
+ruby main.rb netlist sample/netlist
 ```
 
 ### Abilities
