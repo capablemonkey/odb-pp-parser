@@ -1,4 +1,5 @@
-require_relative '../../exporter/json.rb'
+require 'require_all'
+require_rel '../../../lib'
 
 describe JSONExporter do
   describe '#dump_features' do

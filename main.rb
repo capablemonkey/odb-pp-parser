@@ -1,6 +1,6 @@
 require 'thor'
 require 'require_all'
-require_rel './exporter'
+require_rel './lib'
 
 class CLI < Thor
   desc "features <features file>", "export features file"

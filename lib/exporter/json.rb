@@ -1,6 +1,4 @@
 require 'json'
-require 'require_all'
-require_rel '../lib'
 
 class JSONExporter
   def self.dump_features(file_lines)
