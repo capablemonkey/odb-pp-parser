@@ -6,6 +6,24 @@ Parses odb++ files to give a human readable JSON representation of a board layer
 
 Built against the ODB++ Format Specification Version 8.1 (Sept. 2015), available here: http://www.odb-sa.com/resources/
 
+## Getting started
+
+You'll need Ruby 2.0+.  Install dependencies:
+
+```
+bundle install
+```
+
+Output will be sent to `stdout`
+
+### Parsing `features`
+
+To parse the `sample/features` file:
+
+```
+ruby main.rb features sample/features
+```
+
 ```json
 {
   "pads": [
@@ -39,6 +57,14 @@ Built against the ODB++ Format Specification Version 8.1 (Sept. 2015), available
     }
   ]
 }
+```
+
+### Parsing `netlist`
+
+To parse the `sample/netlist` file:
+
+```
+ruby main.rb netlist sample/netlist
 ```
 
 ```json
@@ -85,31 +111,54 @@ Built against the ODB++ Format Specification Version 8.1 (Sept. 2015), available
 }
 ```
 
-## Getting started
+### Parsing layer
 
-You'll need Ruby 2.0+.  Install dependencies:
-
-```
-bundle install
-```
-
-Then parse the `sample/features` file.  Output will be sent to `stdout`
-
-```
-ruby main.rb features sample/features
-```
-
-To parse the `sample/netlist` file:
-
-```
-ruby main.rb netlist sample/netlist
-```
+This includes net information for each pad:
 
 To parse the layer:
 
 ```
 ruby main.rb layer sample/features sample/netlist
 ```
+
+```json
+{
+  "pads": [
+    {
+      "id": "90",
+      "symbol": {
+        "type": "round",
+        "diameter": 55.0
+      },
+      "x": 1.94,
+      "y": 0.36,
+      "net": "+5V"
+    },
+    {
+      "id": "96",
+      "symbol": {
+        "type": "round",
+        "diameter": 55.0
+      },
+      "x": 1.52,
+      "y": 0.56,
+      "net": "+5V"
+    },
+    {
+      "id": "100",
+      "symbol": {
+        "type": "round",
+        "diameter": 55.0
+      },
+      "x": 1.41,
+      "y": 0.1,
+      "net": "+5V"
+    }
+  ]
+}
+```
+
+### Running tests
 
 To run tests:
 
