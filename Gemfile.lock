@@ -24,7 +24,7 @@ PLATFORMS
 DEPENDENCIES
   require_all
   rspec (~> 3.0)
-  thor
+  thor (~> 0.19)
 
 BUNDLED WITH
    1.12.5

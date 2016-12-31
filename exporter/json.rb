@@ -4,55 +4,33 @@ require_rel '../lib'
 
 class JSONExporter
   def self.dump_features(file_lines)
-    pads = Pad::parse_pads(file_lines)
-    symbols = FeatureSymbolName::parse_symbols(file_lines)
+    features = FeaturesParser.new(file_lines)
 
     output = {
-      :pads => pads.map { |pad| pad.describe(symbols) }
+      :pads => features.describe_pads
     }
 
     JSON.dump(output)
   end
 
   def self.dump_netlist(file_lines)
-    nets = OdbNet::parse_nets(file_lines)
-    points = NetPoint::parse_netpoints(file_lines)
-
-     # associate net points with net:
-    nets_by_id = nets.map { |net| [net.serial_num, net] }.to_h
-    points.each do |point|
-      net = nets_by_id[point.net_num]
-      net.points.push(point)
-    end
+    netlist = NetlistParser.new(file_lines)
 
     output = {
-      :nets => nets.map { |net| net.describe }
+      :nets => netlist.describe_nets
     }
 
     JSON.dump(output)
   end
 
   def self.dump_features_with_net(feature_lines, netlist_lines)
-    pads = Pad::parse_pads(feature_lines)
-    symbols = FeatureSymbolName::parse_symbols(feature_lines)
-
-    nets = OdbNet::parse_nets(netlist_lines)
-    points = NetPoint::parse_netpoints(netlist_lines)
-
-     # associate net points with net:
-    nets_by_id = nets.map { |net| [net.serial_num, net] }.to_h
-    points.each do |point|
-      net = nets_by_id[point.net_num]
-      net.points.push(point)
-    end
-
-    # points to net
-    points_to_net = points.map { |point| [point.point_key, nets_by_id[point.net_num]] }.to_h
+    features = FeaturesParser.new(feature_lines)
+    netlist = NetlistParser.new(netlist_lines)
 
     output = {
-      :pads => pads.map do |pad|
-        net = points_to_net[pad.point_key]
-        pad.describe(symbols).merge({:net => (net ? net.name : nil)})
+      :pads => features.pads.map do |pad|
+        net = netlist.get_net_at_point(pad.x, pad.y)
+        pad.describe(features.symbols).merge({:net => (net ? net.name : nil)})
       end
     }
 

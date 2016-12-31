@@ -21,4 +21,9 @@ class OdbNet < Parseable
       new(match_data_hash)
     end
   end
+
+  def add_point(netpoint)
+    @points.push(netpoint)
+    netpoint.net = self
+  end
 end

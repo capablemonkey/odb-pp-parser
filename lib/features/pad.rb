@@ -9,10 +9,6 @@ class Pad < Feature
     @y = match_data_hash['y']
   end
 
-  def point_key
-    "#{@x},#{@y}"
-  end
-
   def self.parse_pads(file_lines)
     parse(file_lines).map do |match_data_hash|
       new(match_data_hash)
