@@ -1,8 +1,16 @@
 class Pad < Feature
   REGEX = /^P (?<x>\d.\d*) (?<y>\d.\d*) (?<apt_def>\d) (?<polarity>P|N) (?<dcode>\d) (?<orient_def>\d)( (?<rotation>\d{0,3}))?;(?<atrs>(?<atrval>\d*=.*)*|,|(?<atr>\d*))*;ID=(?<id>\d*)$/
 
+  attr_accessor :x, :y
+
   def initialize(match_data_hash)
     @match_data_hash = match_data_hash
+    @x = match_data_hash['x']
+    @y = match_data_hash['y']
+  end
+
+  def point_key
+    "#{@x},#{@y}"
   end
 
   def self.parse_pads(file_lines)

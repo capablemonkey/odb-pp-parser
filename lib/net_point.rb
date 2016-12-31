@@ -11,6 +11,10 @@ class NetPoint < Parseable
     @y = match_data_hash['y']
   end
 
+  def point_key
+    "#{@x},#{@y}"
+  end
+
   def describe
     {
       :x => @x,

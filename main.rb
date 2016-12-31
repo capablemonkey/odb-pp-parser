@@ -1,16 +1,29 @@
+require 'thor'
 require 'require_all'
 require_rel './exporter'
 
-def main
-  type = ARGV[0]
-  filename = ARGV[1]
+class CLI < Thor
+  desc "features <features file>", "export features file"
 
-  return STDERR.puts 'usage: ruby main.rb (features|netlist) <file>' unless type && filename
+  def features(feature_filename)
+    file_lines = File.read(feature_filename).lines
+    puts JSONExporter::dump_features(file_lines)
+  end
 
-  file_lines = File.read(filename).lines
+  desc "netlist <netlist file>", "export netlist file"
 
-  return puts JSONExporter::dump_features(file_lines) if type == 'features'
-  return puts JSONExporter::dump_netlist(file_lines) if type == 'netlist'
+  def netlist(netlist_filename)
+    file_lines = File.read(netlist_filename).lines
+    puts JSONExporter::dump_netlist(file_lines)
+  end
+
+  desc "layer <features file> <netlist file>", "export pads with nets"
+
+  def layer(features_filename, netlist_filename)
+    feature_lines = File.read(features_filename).lines
+    netlist_lines = File.read(netlist_filename).lines
+    puts JSONExporter::dump_features_with_net(feature_lines, netlist_lines)
+  end
 end
 
-main
+CLI.start
