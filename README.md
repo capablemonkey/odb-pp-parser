@@ -105,6 +105,12 @@ To parse the `sample/netlist` file:
 ruby main.rb netlist sample/netlist
 ```
 
+To parse the layer:
+
+```
+ruby main.rb layer sample/features sample/netlist
+```
+
 To run tests:
 
 ```
