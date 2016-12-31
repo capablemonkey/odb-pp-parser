@@ -1,5 +1,7 @@
 # odb++ parser
 
+[![Build Status](https://travis-ci.org/capablemonkey/odb-pp-parser.svg?branch=master)](https://travis-ci.org/capablemonkey/odb-pp-parser)
+
 Parses odb++ files to give a human readable JSON representation of a board layer.  Currently only parses **features** and **netlist** files.
 
 Built against the ODB++ Format Specification Version 8.1 (Sept. 2015), available here: http://www.odb-sa.com/resources/
