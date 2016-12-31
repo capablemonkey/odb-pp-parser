@@ -103,6 +103,12 @@ To parse the `sample/netlist` file:
 ruby main.rb netlist sample/netlist
 ```
 
+To run tests:
+
+```
+rspec
+```
+
 ### Abilities
 
 Currently it can identify these entities:

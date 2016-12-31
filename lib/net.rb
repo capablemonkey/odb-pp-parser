@@ -1,4 +1,4 @@
-class Net < Parseable
+class OdbNet < Parseable
   REGEX = /^\$(?<serial_num>\d*) (?<net_name>.*)$/
 
   attr_accessor :name, :serial_num, :points

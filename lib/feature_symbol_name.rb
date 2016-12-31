@@ -3,7 +3,10 @@ class FeatureSymbolName < Parseable
 
   def self.parse_symbols(file_lines)
     parse(file_lines).map do |match_data_hash|
-      OdbSymbol::from_symbol_name(match_data_hash['symbol_name'])
-    end
+      [
+        match_data_hash['serial_num'],
+        OdbSymbol::from_symbol_name(match_data_hash['symbol_name'])
+      ]
+    end.to_h
   end
 end

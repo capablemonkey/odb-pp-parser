@@ -11,11 +11,11 @@ class JSONExporter
       :pads => pads.map { |pad| pad.describe(symbols) }
     }
 
-    JSON.pretty_generate(output)
+    JSON.dump(output)
   end
 
   def self.dump_netlist(file_lines)
-    nets = Net::parse_nets(file_lines)
+    nets = OdbNet::parse_nets(file_lines)
     points = NetPoint::parse_netpoints(file_lines)
 
     # associate net points with net:
@@ -29,7 +29,7 @@ class JSONExporter
       :nets => nets.map { |net| net.describe }
     }
 
-    JSON.pretty_generate(output)
+    JSON.dump(output)
   end
 end
 

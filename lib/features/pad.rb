@@ -11,9 +11,9 @@ class Pad < Feature
     end
   end
 
-  def describe(symbols)
-    symbol_index = @match_data_hash['apt_def'].to_i
-    symbol = symbols[symbol_index]
+  def describe(symbols_hash)
+    symbol_index = @match_data_hash['apt_def']
+    symbol = symbols_hash[symbol_index]
 
     {
       :id => @match_data_hash['id'],
