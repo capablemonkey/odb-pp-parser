@@ -16,7 +16,7 @@ class OdbNet < Parseable
     }
   end
 
-  def self.parse_nets(file_lines)
+  def self.from_lines(file_lines)
     parse(file_lines).map do |match_data_hash|
       new(match_data_hash)
     end

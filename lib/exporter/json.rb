@@ -5,7 +5,7 @@ class JSONExporter
     features = FeaturesParser.new(file_lines)
 
     output = {
-      :pads => features.describe_pads
+      :pads => features.describe_pads {{}}
     }
 
     JSON.dump(output)
@@ -26,9 +26,9 @@ class JSONExporter
     netlist = NetlistParser.new(netlist_lines)
 
     output = {
-      :pads => features.pads.map do |pad|
+      :pads => features.describe_pads do |pad|
         net = netlist.get_net_at_point(pad.x, pad.y)
-        pad.describe(features.symbols).merge({:net => (net ? net.name : nil)})
+        {:net => (net ? net.name : nil)}
       end
     }
 

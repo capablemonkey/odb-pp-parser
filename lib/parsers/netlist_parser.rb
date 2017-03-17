@@ -5,8 +5,8 @@ class NetlistParser
   POINT_MATCH_PRECISION = 5
 
   def initialize(file_lines)
-    @nets = OdbNet::parse_nets(file_lines)
-    @netpoints = NetPoint::parse_netpoints(file_lines)
+    @nets = OdbNet::from_lines(file_lines)
+    @netpoints = NetPoint::from_lines(file_lines)
 
     # associate net points with net:
     nets_by_id = @nets.map { |net| [net.serial_num, net] }.to_h

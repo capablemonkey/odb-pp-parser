@@ -14,7 +14,16 @@ describe JSONExporter do
       end
 
       it 'should represent the round in JSON as expected' do
-        expect(JSONExporter::dump_features(file_lines)).to eq('{"pads":[{"id":"90","symbol":{"type":"round","diameter":55.0},"x":1.94,"y":0.36},{"id":"386","symbol":{"type":"oval","width":24.0,"height":74.0},"x":1.21972343,"y":0.6559187}]}')
+        output = JSONExporter::dump_features(file_lines)
+        parsed_output = JSON.load(output)
+        expect(parsed_output).to eq(
+          {
+            "pads" => [
+              {"id"=>"90", "symbol"=>{"type"=>"round", "diameter"=>55.0}, "x"=>1.94, "y"=>0.36},
+              {"id"=>"386", "symbol"=>{"type"=>"oval", "width"=>24.0, "height"=>74.0}, "x"=>1.21972343, "y"=>0.6559187}
+            ]
+          }
+        )
       end
     end
   end
@@ -32,7 +41,17 @@ describe JSONExporter do
       end
 
       it 'should represent the net in JSON as expected' do
-        expect(JSONExporter::dump_netlist(file_lines)).to eq('{"nets":[{"name":"$NONE$","points":[{"x":1.4397234,"y":0.3559187}]},{"name":"OUT_DATA_POS","points":[{"x":1.36,"y":0.46},{"x":0.2552531,"y":0.4975584}]}]}')
+        output = JSONExporter::dump_netlist(file_lines)
+        parsed_output = JSON.load(output)
+        expect(parsed_output).to eq(
+          {
+            "nets" =>
+              [
+                {"name"=>"$NONE$", "points"=>[{"x"=>1.4397234, "y"=>0.3559187}]},
+                {"name"=>"OUT_DATA_POS", "points"=>[{"x"=>1.36, "y"=>0.46}, {"x"=>0.2552531, "y"=>0.4975584}]}
+              ]
+          }
+        )
       end
     end
   end
@@ -60,7 +79,17 @@ describe JSONExporter do
       end
 
       it 'should return pads with their nets' do
-        expect(JSONExporter::dump_features_with_net(feature_lines, netlist_lines)).to eq('{"pads":[{"id":"90","symbol":{"type":"round","diameter":55.0},"x":1.4397234,"y":0.3559187,"net":"$NONE$"},{"id":"92","symbol":{"type":"round","diameter":55.0},"x":1.36,"y":0.46,"net":"OUT_DATA_POS"},{"id":"386","symbol":{"type":"oval","width":24.0,"height":74.0},"x":0.2552531,"y":0.4975584,"net":"OUT_DATA_POS"}]}')
+        output = JSONExporter::dump_features_with_net(feature_lines, netlist_lines)
+        parsed_output = JSON.load(output)
+        expect(parsed_output).to eq(
+          {
+            "pads" => [
+              {"id"=>"90", "symbol"=>{"type"=>"round", "diameter"=>55.0}, "x"=>1.4397234, "y"=>0.3559187, "net"=>"$NONE$"},
+              {"id"=>"92", "symbol"=>{"type"=>"round", "diameter"=>55.0}, "x"=>1.36, "y"=>0.46, "net"=>"OUT_DATA_POS"},
+              {"id"=>"386", "symbol"=>{"type"=>"oval", "width"=>24.0, "height"=>74.0}, "x"=>0.2552531, "y"=>0.4975584, "net"=>"OUT_DATA_POS"}
+            ]
+          }
+        )
       end
     end
   end
