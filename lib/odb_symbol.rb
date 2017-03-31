@@ -1,7 +1,7 @@
 class OdbSymbol < Parseable
   STANDARD_SYMBOLS = {
     /^r(?<diameter>\d+(\.?\d*))$/ => :round,
-    /^s(?<side>\d+\.?\d*)$/ => :square,
+    /^s(?<width>\d+\.?\d*)$/ => :square,
     /^rect(?<width>\d+\.?\d*)x(?<height>\d+\.?\d*)$/ => :rect,
     /^oval(?<width>\d+\.?\d*)x(?<height>\d+\.?\d*)$/ => :oval
   }
