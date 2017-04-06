@@ -1,4 +1,6 @@
-class Pad < Parseable
+class Pad
+  extend Parseable
+
   REGEX = /^P (?<x>\d.\d*) (?<y>\d.\d*) (?<apt_def>\d) (?<polarity>P|N) (?<dcode>\d) (?<orient_def>\d)( (?<rotation>\d{0,3}))?;(?<atrs>(?<atrval>\d*=.*)*|,|(?<atr>\d*))*;ID=(?<id>\d*)$/
 
   attr_accessor :x, :y, :symbol_index

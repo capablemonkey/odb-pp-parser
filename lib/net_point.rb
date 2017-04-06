@@ -1,4 +1,6 @@
-class NetPoint < Parseable
+class NetPoint
+  extend Parseable
+
   REGEX = /^(?<net_num>\d*) (?<radius>\d*(.\d*)?) (?<x>\d*(.\d*)?) (?<y>\d*(.\d*)?) (?<side>T|D|B|I) ((?<w>\d*(.\d*)?) (?<h>\d*(.\d*)?) )?(?<epoint>e|m) (?<exp>e|c|p|s)/
 
   attr_accessor :net_num, :x, :y, :net

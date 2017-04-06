@@ -1,4 +1,6 @@
-class FeatureSymbolName < Parseable
+class FeatureSymbolName
+  extend Parseable
+
   REGEX = /^\$(?<serial_num>\d*) (?<symbol_name>[[:alnum:]]*)( (?<measurements>I|M))?$/
 
   def self.from_lines(file_lines)

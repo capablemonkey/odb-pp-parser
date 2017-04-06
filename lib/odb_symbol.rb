@@ -1,4 +1,6 @@
-class OdbSymbol < Parseable
+class OdbSymbol
+  extend Parseable
+
   STANDARD_SYMBOLS = {
     /^r(?<diameter>\d+(\.?\d*))$/ => :round,
     /^s(?<width>\d+\.?\d*)$/ => :square,
