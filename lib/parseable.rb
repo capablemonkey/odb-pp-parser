@@ -2,7 +2,7 @@ module Parseable
   module_function
 
   REGEX = nil
-  NUMBER_FIELDS = ['width', 'height', 'x', 'y', 'diameter']
+  NUMBER_FIELDS = ['width', 'height', 'x', 'y', 'diameter', 'rotation']
 
   def parse(file_lines)
     raise "No regex defined" if self::REGEX.nil?

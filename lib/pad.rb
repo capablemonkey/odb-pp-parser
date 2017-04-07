@@ -22,7 +22,8 @@ class Pad
     {
       :id => @match_data_hash['id'],
       :x => @match_data_hash['x'],
-      :y => @match_data_hash['y']
+      :y => @match_data_hash['y'],
+      :rotation => @match_data_hash['rotation']
     }
   end
 end
