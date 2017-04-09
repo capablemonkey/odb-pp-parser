@@ -40,7 +40,8 @@ class Board
     {
       :nets => @netlist.nets.map(&:name),
       :components => describe_components,
-      :pads => describe_pads
+      :pads => describe_pads,
+      :lines => @features.describe_lines
     }
   end
 end

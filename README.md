@@ -196,6 +196,7 @@ Currently it can identify these entities:
 #### Features
 
 - pads
+- lines
 
 #### Nets
 

@@ -6,16 +6,22 @@ class FeaturesParser
   def initialize(file_lines)
     @pads = Pad::from_lines(file_lines)
     @symbols = FeatureSymbolName::from_lines(file_lines)
+    @lines = Line::from_lines(file_lines)
   end
 
   def describe_pads
     @pads.map do |pad|
-      describe_pad(pad).merge(yield pad)
+      pad.describe.
+        merge(:symbol => @symbols[pad.symbol_index].to_h).
+        merge(yield pad)
     end
   end
 
-  def describe_pad(pad)
-    pad.describe.merge(:symbol => @symbols[pad.symbol_index].to_h)
+  def describe_lines
+    @lines.map do |line|
+      line.describe.
+        merge(:symbol => @symbols[line.symbol_index].to_h)
+    end
   end
 
   def get_pad_at_point(x, y)
