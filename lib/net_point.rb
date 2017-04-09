@@ -8,9 +8,9 @@ class NetPoint
   def initialize(match_data_hash)
     @match_data_hash = match_data_hash
 
-    @net_num = match_data_hash['net_num']
-    @x = match_data_hash['x']
-    @y = match_data_hash['y']
+    @net_num = @match_data_hash['net_num']
+    @x = @match_data_hash['x']
+    @y = @match_data_hash['y']
   end
 
   def describe
