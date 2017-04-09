@@ -16,6 +16,22 @@ bundle install
 
 Output will be sent to `stdout`
 
+### Parsing the board 
+
+To parse the board:
+
+```
+ruby main.rb layer sample/features sample/netlist sample/components
+```
+
+```json
+{
+  "nets": [],
+  "components": [],
+  "pads": []
+}
+```
+
 ### Parsing `features`
 
 To parse the `sample/features` file:
@@ -197,3 +213,9 @@ Currently it can identify these entities:
 - h (optional)
 - epoint
 - exp
+
+#### Components
+
+- CMP records (components)
+- PRP records (properties)
+- TOP records (toeprints)
