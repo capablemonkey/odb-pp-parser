@@ -25,6 +25,12 @@ class NetlistParser
     @points_to_net[point_key(x, y)]
   end
 
+  def get_net_by_index(index)
+    @nets.
+      select { |net| net.serial_num == index }.
+      first
+  end
+
   private
 
     def point_key(x, y)

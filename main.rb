@@ -24,6 +24,15 @@ class CLI < Thor
     netlist_lines = File.read(netlist_filename).lines
     puts JSONExporter::dump_features_with_net(feature_lines, netlist_lines)
   end
+
+  desc "board <features file> <netlist file> <components file>", "parse board with components list, features, netlist"
+
+  def board(features_filename, netlist_filename, components_filename)
+    feature_lines = File.read(features_filename).lines
+    netlist_lines = File.read(netlist_filename).lines
+    components_lines = File.read(components_filename).lines
+    puts JSONExporter::dump_board(feature_lines, netlist_lines, components_lines)
+  end
 end
 
 CLI.start

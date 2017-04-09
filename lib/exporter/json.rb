@@ -34,5 +34,16 @@ class JSONExporter
 
     JSON.dump(output)
   end
+
+  def self.dump_board(feature_lines, netlist_lines, components_lines)
+    board = Board.new(
+      :features => feature_lines,
+      :netlist => netlist_lines,
+      :components => components_lines
+    )
+
+    output = board.describe_board
+    JSON.dump(output)
+  end
 end
 

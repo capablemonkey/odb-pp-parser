@@ -3,10 +3,11 @@ class Pad
 
   REGEX = /^P (?<x>\d.\d*) (?<y>\d.\d*) (?<apt_def>\d) (?<polarity>P|N) (?<dcode>\d) (?<orient_def>\d)( (?<rotation>\d{0,3}))?;(?<atrs>(?<atrval>\d*=.*)*|,|(?<atr>\d*))*;ID=(?<id>\d*)$/
 
-  attr_accessor :x, :y, :symbol_index
+  attr_accessor :x, :y, :symbol_index, :id
 
   def initialize(match_data_hash)
     @match_data_hash = match_data_hash
+    @id = @match_data_hash['id']
     @x = match_data_hash['x']
     @y = match_data_hash['y']
     @symbol_index = match_data_hash['apt_def']
@@ -20,9 +21,9 @@ class Pad
 
   def describe
     {
-      :id => @match_data_hash['id'],
-      :x => @match_data_hash['x'],
-      :y => @match_data_hash['y'],
+      :id => @id,
+      :x => @x,
+      :y => @y,
       :rotation => @match_data_hash['rotation']
     }
   end
